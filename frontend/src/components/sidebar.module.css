@@ -1,0 +1,93 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #0d1117;
+  border-right: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px 32px;
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  margin-bottom: 32px;
+}
+
+.logoName {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #f0f6fc;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navItem:hover {
+  background: rgba(48, 54, 61, 0.4);
+  color: #f0f6fc;
+  transform: translateX(4px);
+}
+
+.navItem.active {
+  background: rgba(31, 111, 235, 0.1);
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.navItem.active .icon {
+  color: #58a6ff;
+}
+
+.icon {
+  transition: color 0.2s;
+}
+
+.footer {
+  padding-top: 16px;
+  border-top: 1px solid #30363d;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: #f85149;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+  background: rgba(248, 81, 73, 0.1);
+}

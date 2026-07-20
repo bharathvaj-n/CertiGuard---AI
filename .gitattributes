@@ -1,0 +1,13 @@
+# Normalize line endings to LF in the repository, checkout as-is on Windows
+* text=auto eol=lf
+
+# Force binary files to never be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.pkl binary
+*.db  binary
+*.woff2 binary

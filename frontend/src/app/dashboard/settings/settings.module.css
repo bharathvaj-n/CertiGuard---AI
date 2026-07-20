@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #8b949e;
+  font-size: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.section {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: #58a6ff;
+}
+
+.sectionHeader h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f6fc;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  color: #f0f6fc;
+}
+
+.formGroup input[type="range"] {
+  width: 100%;
+}
+
+.info {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.toggleGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.saveBtn {
+  background: #1f6feb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.dbActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dbActions button {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #f0f6fc;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.danger {
+  color: #f85149 !important;
+  border-color: rgba(248, 81, 73, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}
