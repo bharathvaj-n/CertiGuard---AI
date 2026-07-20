@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+
+# Database
+*.db
+backend/db/
+backend/app/db/
+
+# ML models
+*.pkl
+
+# Uploads & reports
+backend/uploads/
+backend/reports/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Node
+node_modules/
+frontend/.next/
+frontend/out/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+tsconfig.tsbuildinfo

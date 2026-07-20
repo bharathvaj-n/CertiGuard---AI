@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+venv/
+app/db/*.db
+uploads/
+reports/
+.env
+*.pkl
