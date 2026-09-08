@@ -13,3 +13,14 @@ services:
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: 30
     plan: free
+
+  - type: web
+    name: certiguard-ai-frontend
+    runtime: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    plan: free
