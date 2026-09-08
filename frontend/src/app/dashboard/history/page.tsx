@@ -11,6 +11,7 @@ import {
 import { motion } from 'framer-motion';
 import styles from './history.module.css';
 import { useRouter } from 'next/navigation';
+import API_URL from '@/lib/api';
 
 interface HistoryRecord {
   id: string;
@@ -38,7 +39,7 @@ export default function HistoryPage() {
             const token = localStorage.getItem('certiguard_token');
             const controller = new AbortController();
             const timeout = setTimeout(() => controller.abort(), 3000);
-            const res = await fetch('http://localhost:8000/api/certificates/history', {
+            const res = await fetch(`${API_URL}/api/certificates/history`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : {},
                 signal: controller.signal
             });
@@ -62,7 +63,7 @@ export default function HistoryPage() {
     
     try {
         const token = localStorage.getItem('certiguard_token');
-        const res = await fetch(`http://localhost:8000/api/certificates/${id}`, {
+        const res = await fetch(`${API_URL}/api/certificates/${id}`, {
             method: 'DELETE',
             headers: token ? { 'Authorization': `Bearer ${token}` } : {}
         });

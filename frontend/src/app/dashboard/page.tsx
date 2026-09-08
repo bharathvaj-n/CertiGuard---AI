@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 import styles from './page.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import API_URL from '@/lib/api';
 
 interface Stats {
   total: number;
@@ -49,8 +50,8 @@ export default function Dashboard() {
         const timeout = setTimeout(() => controller.abort(), 3000);
 
         const [statsRes, recentRes] = await Promise.all([
-            fetch('http://localhost:8000/api/dashboard/stats', { headers, signal: controller.signal }),
-            fetch('http://localhost:8000/api/dashboard/recent', { headers, signal: controller.signal })
+            fetch(`${API_URL}/api/dashboard/stats`, { headers, signal: controller.signal }),
+            fetch(`${API_URL}/api/dashboard/recent`, { headers, signal: controller.signal })
         ]);
         clearTimeout(timeout);
 

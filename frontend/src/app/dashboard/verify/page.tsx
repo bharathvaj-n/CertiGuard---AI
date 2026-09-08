@@ -5,6 +5,7 @@ import { Upload, File, X, Info, CheckCircle2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './verify.module.css';
+import API_URL from '@/lib/api';
 
 const PENDING_KEY = 'certiguard_pending_analysis';
 
@@ -86,7 +87,7 @@ export default function VerifyPage() {
   const runAnalyze = async (uploadData: UploadData) => {
     try {
         const analyzeRes = await apiFetch(
-          'http://localhost:8000/api/certificates/analyze',
+          `${API_URL}/api/certificates/analyze`,
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -144,7 +145,7 @@ export default function VerifyPage() {
     try {
         // Quick health check — fail fast with a clear message
         try {
-          await apiFetch('http://localhost:8000/api/health', {}, 3000);
+          await apiFetch(`${API_URL}/api/health`, {}, 3000);
         } catch {
           throw new Error('Failed to fetch');
         }
@@ -155,7 +156,7 @@ export default function VerifyPage() {
         // Step 1 — Upload
         setStep(1);
         const uploadRes = await apiFetch(
-          'http://localhost:8000/api/certificates/upload',
+          `${API_URL}/api/certificates/upload`,
           { method: 'POST', body: formData }
         );
         if (!uploadRes.ok) {

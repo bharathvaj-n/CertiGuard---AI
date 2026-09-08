@@ -17,6 +17,7 @@ import {
 import { motion } from 'framer-motion';
 import styles from './detail.module.css';
 import Link from 'next/link';
+import API_URL from '@/lib/api';
 
 interface ExtractedData {
   certificate_id: string;
@@ -48,7 +49,7 @@ export default function VerificationDetail() {
     async function fetchRecord() {
         try {
             const token = localStorage.getItem('certiguard_token');
-            const res = await fetch(`http://localhost:8000/api/certificates/${id}`, {
+            const res = await fetch(`${API_URL}/api/certificates/${id}`, {
                 headers: token ? { 'Authorization': `Bearer ${token}` } : {}
             });
             if (!res.ok) throw new Error('Verification record not found');
@@ -190,7 +191,7 @@ export default function VerificationDetail() {
                 className={styles.downloadBtn} 
                 onClick={async () => {
                    const token = localStorage.getItem('certiguard_token');
-                   const res = await fetch(`http://localhost:8000/api/certificates/${result.id}/report`, {
+                   const res = await fetch(`${API_URL}/api/certificates/${result.id}/report`, {
                        headers: token ? { 'Authorization': `Bearer ${token}` } : {}
                    });
                    if (res.ok) {
