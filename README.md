@@ -45,11 +45,11 @@ SQLite (async via aiosqlite)
 
 | Layer | Technology |
 |---|---|
-| Frontend | Next.js 16, TypeScript, Tailwind CSS, Framer Motion, Lucide React |
+| Frontend | Next.js 16.2, TypeScript, Tailwind CSS, Framer Motion, Lucide React |
 | Backend | FastAPI, Python 3.10+, Uvicorn |
 | Database | SQLite + SQLAlchemy (async) + aiosqlite |
 | OCR | EasyOCR, OpenCV |
-| ML | scikit-learn (GradientBoosting + RandomForest ensemble) |
+| ML | scikit-learn (HistGradientBoosting + RandomForest + ExtraTrees calibrated ensemble) |
 | Auth | python-jose (JWT), passlib + bcrypt |
 | Reports | ReportLab |
 | PDF parsing | PyMuPDF (fitz) |
@@ -137,6 +137,8 @@ python -m app.ml.train_classifier
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
+> **Tip:** From the project root you can also run `npm run backend` to start the backend.
+
 ### 3. Frontend Setup
 
 ```bash
@@ -169,6 +171,17 @@ python -c "import secrets; print(secrets.token_hex(32))"
 ---
 
 ## Running Locally
+
+### From the project root (convenience scripts)
+
+| Command | Description |
+|---|---|
+| `npm run backend` | Start backend server |
+| `npm run dev` | Start frontend dev server |
+| `npm run train` | Retrain ML classifier |
+| `npm run setup:db` | Re-seed database |
+
+### Directly
 
 | Command | Description |
 |---|---|
