@@ -15,11 +15,17 @@ load_dotenv()
 app = FastAPI(title="CertiGuard AI API", version="1.0.0")
 
 # CORS configuration
-origins = [
+DEFAULT_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://certi-guard-ai-khaki.vercel.app",
+]
+extra = [
     url.strip()
-    for url in os.getenv("FRONTEND_URL", "http://localhost:3000,http://127.0.0.1:3000").split(",")
+    for url in os.getenv("FRONTEND_URL", "").split(",")
     if url.strip()
 ]
+origins = list(dict.fromkeys(DEFAULT_ORIGINS + extra))
 
 app.add_middleware(
     CORSMiddleware,
